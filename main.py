@@ -12,7 +12,6 @@ from firebase_admin import credentials, firestore
 import hashlib
 from dotenv import load_dotenv
 import threading
-import json
 
 # 全域流水號 & 鎖
 global_counter = 0
@@ -38,14 +37,6 @@ handler = WebhookHandler(CHANNEL_SECRET)
 cred = credentials.Certificate('serviceAccount.json')
 firebase_admin.initialize_app(cred)
 db = firestore.client()
-
-# 讀取環境變數中的 JSON 字串
-firebase_json = os.getenv("FIREBASE_CREDENTIALS")
-if not firebase_json:
-    raise Exception("請設定 FIREBASE_CREDENTIALS 環境變數，內容為 serviceAccount.json 的完整 JSON 字串")
-
-cred = credentials.Certificate(json.loads(firebase_json))
-firebase_admin.initialize_app(cred)
 
 # --- 加密 userID ---
 def encrypt_userid(user_id):
