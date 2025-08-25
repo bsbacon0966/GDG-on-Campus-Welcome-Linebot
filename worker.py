@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, FollowEvent
 from linebot.exceptions import InvalidSignatureError
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -43,7 +43,13 @@ def callback():
         return "ERROR", 200
 
     return "OK"
-
+@handler_A.add(FollowEvent)
+def handle_follow(event):
+    user_id = event.source.user_id
+    line_bot_api_A.push_message(
+        user_id,
+        TextSendMessage(text="感謝各位協助GDG on Campus抽獎機器人的工作\n\n只要有人提到XXXYYYY(例如:1BA0001)輸入給我，此使用這就可以參與抽獎活動\n\n感謝各位的協助!")
+    )
 # --- 處理文字訊息 ---
 @handler_A.add(MessageEvent, message=TextMessage)
 def handle_message(event):
