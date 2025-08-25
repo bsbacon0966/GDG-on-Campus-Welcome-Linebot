@@ -10,8 +10,14 @@ import random
 
 load_dotenv()
 
-CHANNEL_ACCESS_TOKEN = os.getenv('CHANNEL_TOKEN')
-line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
+CHANNEL_ACCESS_TOKEN = os.getenv('CHANNEL_TOKEN_B')
+line_bot_api = LineBotApi("XA01")
+user_id = "S411185038"
+line_bot_api.push_message(
+    user_id,
+    TextSendMessage(text=f"Hello World")
+)
+
 
 # 初始化 Firebase（只需執行一次）
 if not firebase_admin._apps:
