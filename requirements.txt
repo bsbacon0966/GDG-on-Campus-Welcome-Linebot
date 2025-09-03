@@ -1,4 +1,5 @@
 Flask
 line-bot-sdk
-firebase-admin
+pymongo[srv]
 python-dotenv
+firebase-admin
