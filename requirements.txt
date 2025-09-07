@@ -3,3 +3,4 @@ line-bot-sdk
 pymongo[srv]
 python-dotenv
 firebase-admin
+openai

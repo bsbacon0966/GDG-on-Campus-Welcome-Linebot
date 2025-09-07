@@ -31,7 +31,7 @@ def export_unique_codes(collection_name, output_file):
         collection = db[collection_name]
 
         # 查詢 finish=true 的使用者
-        query = {"finish": True}
+        query = {"$or": [{"finish": True}, {"finish_gameplay": True}]}
         projection = {"unique_code": 1, "_id": 0}  # 只取 unique_code，不要 _id
         docs = collection.find(query, projection)
 
