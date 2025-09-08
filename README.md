@@ -10,4 +10,5 @@
 - has_seen_answer_description : 如果玩家答錯，是否看過詳解，用來決定是否顯示詳解
 
 ## Overall (社團LLM設計)
-<img width="1126" height="680" alt="未命名绘图 drawio (3)" src="https://github.com/user-attachments/assets/6de822ff-053d-4495-a51e-ee52c2e9fa61" />
+<img src="https://github.com/user-attachments/assets/6de822ff-053d-4495-a51e-ee52c2e9fa61" 
+     style="border: 3px solid black; border-radius: 5px;">
